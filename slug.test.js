@@ -26,16 +26,17 @@ test('createSlug should return a dashed string', () => {
 
 // createSlug dovrebbe incrementare di 1 lo slug quando esiste già
 
-// test('createSlug should increment the slug by one if it already exists', () => {
-//     const slug = createSlug('prova', existingSlugs);
-  
-//     expect(slug).toBe('prova-3');
-//   });
-
 // createSlug dovrebbe lanciare un errore in caso di titolo non presente o formato errato
-test('createSlug should throw an error if there is no title or it is badly formatted', () => {
 
+test('createSlug should throw and error if title is empty or wrongly formatted', ()=> {
+    const emptySlug = createSlug(" ");
+    const wrongSlug = createSlug(2324);
+    expect(createSlug(emptySlug)).toThrow();
+    expect(createSlug(wrongSlug)).toThrow();
 })
 
 // createSlug dovrebbe lanciare un errore se manca l'array dei post
-9
+
+test('createSlug should throw an error is posts array is missing', ()=> {
+    expect(createSlug).toThrow();
+})
